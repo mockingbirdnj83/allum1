@@ -1,0 +1,58 @@
+/*
+** list_manager.c for list_manager in /home/aubess_t/work/semestre2/my_malloc/src
+** 
+** Made by au
+** Login   <aubess_t@epitech.net>
+** 
+** Started on  Thu Feb  6 23:59:15 2014 au
+** Last update Sun Feb 16 02:03:59 2014 au
+*/
+
+#include "list_manager.h"
+
+t_manager *g_list = NULL;
+
+t_manager       *lm_create_list(char *name)
+{
+  static int	id = 0;
+  t_manager	*new_element;
+
+  if (!(new_element = (t_manager*)malloc(sizeof(t_manager))))
+    return (NULL);
+  new_element->next = NULL;
+  new_element->prev = NULL;
+  new_element->id = id++;
+  new_element->payload.list = NULL;
+  new_element->payload.name = name;
+  return (new_element);
+}
+
+t_elem		**lm_add_list(char *name)
+{
+  t_manager	*tmp;
+  t_manager	*new_element;
+
+  tmp = g_list;
+  if (!(new_element = lm_create_list(name)))
+    return (NULL);
+  if (g_list == NULL)
+    g_list = new_element;
+  else
+    {
+      while (tmp->next != NULL)
+	tmp = tmp->next;
+      tmp->next = new_element;
+      new_element->prev = tmp;
+    }
+  return (t_elem**)(&(new_element->payload.list));
+}
+
+t_elem	*lm_add_elem(t_elem ***list, void *payload)
+{
+  return (my_add_elem(list, payload));
+}
+
+void	lm_remove_elem(t_elem ***list, t_elem *elem)
+{
+  my_remove_elem(list, elem);
+}

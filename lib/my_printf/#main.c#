@@ -1,0 +1,46 @@
+/*
+** main.c for main in /home/aubess_t/rendu/PSU_2013_my_printf
+** 
+** Made by au
+** Login   <aubess_t@epitech.net>
+** 
+** Started on  Fri Nov 15 03:40:58 2013 au
+** Last update Sat Jan 25 19:59:26 2014 au
+*/
+
+#include <string.h>
+#include <stdio.h>
+#include "my.h"
+
+int	main(int argc, char **argv)
+{
+  unsigned int	i;
+  int	j;
+  char	str[6];
+  char	c;
+  char	*ptr;
+  long	l;
+  char *srtr = "helooo";
+
+  l = 1234567489746541;
+  ptr = &c;
+  c = 'e';
+  strcpy(str, "hello");
+  i = 98;
+  j = -987;
+  my_printf("%%c : **[%c]*\n", c);
+  my_printf("%%d : **[%d]*\n", i);
+  my_printf("%%u : *[%u]*\n", j);
+  my_printf("%%s : **[%s]*\n", str);
+  my_printf("%%p : *[%p]*\n", ptr);
+  //my_printf("%%");
+  //my_printf("%S", str);
+  //my_printf("%p\n", &ptr);
+  //printf("%p\n", &ptr);
+  //my_printf("%dheloooooo%n\n", i, &i);
+  //  my_printf("%+d\n", i);
+  //my_printf("%i\n", i);
+  //my_printf("%d|\n%s|\n%c|\n", i, str, c);
+  //my_printf("%d|\n", i);
+  return (0);
+}
